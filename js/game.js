@@ -34,8 +34,10 @@
         };
 
         navigator.mediaDevices.getUserMedia(constraints)
-            .error((error) => console.log('getUserMedia() error:**', error))
-            .then(gotStream);
+			.then(gotStream)
+			.catch(error => {
+				console.log('getUserMedia error', error);
+			});
     };
 
     // Display the stream from the camera, and then
@@ -58,7 +60,7 @@
             .catch((error) => {console.log('takePhoto() error', error)});
     };
 
-    const createImagePieces = (image) => {
+    const createImagePieces = image => {
         const canvas = document.createElement(`canvas`);
         const ctx = canvas.getContext('2d');
         const pieceWidth = image.width / numCol;
@@ -77,9 +79,9 @@
         };
 
         markers.forEach((marker, index) => {
-            const aImg = new document.createElement(`a-image`);
-            aImg.setAttribute(`rotation`, `-90, 0, 0`);
-            aImg.setAttribute(`position`, `0, 0, 0`);
+            const aImg = document.createElement(`a-image`);
+            aImg.setAttribute(`rotation`, `-90 0 0`);
+            aImg.setAttribute(`position`, `0 0 0`);
             aImg.setAttribute(`src`, imagePieces[puzzle[index]]);
             marker.appendChild(aImg);
         });
