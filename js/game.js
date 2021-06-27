@@ -5,12 +5,16 @@
     let constraints, imageCapture, mediaStream, video;
 
     // Puzzle Vars
-    let numCol = 3, numRow = 3;
-    let puzzlePieces = numCol * numRow;
-    let pieces = puzzlePieces - 1;
-    let imagePieces = new Array(puzzlePieces);
-    let puzzle = [...imagePieces.keys()].map(String);
-    let markers = document.querySelectorAll(`a-marker`);
+	const markers = document.querySelectorAll(`a-marker`),
+		numCol = 3, numRow = 3,
+		puzzlePieces = numCol * numRow,
+		tolerance = 1.9;
+
+	let imgPieces = new Array(puzzlePieces),
+		puzzle = [...Array(puzzlePieces).keys()].map(String),
+		pieces = numCol * numRow - 1,
+		positionMarkers = [],
+		check = new Array(6);
 
     const init = () => {
         video = document.querySelector(`video`);
