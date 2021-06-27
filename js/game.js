@@ -1,9 +1,7 @@
 {
     // New Game-Level Variables
     const takePhotoButton = document.querySelector('.takePhoto');
-    let constraints, video;
-    let mediaStream;
-    let imageCapture;
+    let constraints, imageCapture, mediaStream, video;
 
     // Puzzle Vars
     let numCol = 3, numRow = 3;
@@ -79,9 +77,9 @@
 
         markers.forEach((marker, index) => {
             const aImg = new document.createElement(`a-image`);
-            aImg.setAttribute('rotation', '-90, 0, 0');
-            aImg.setAttribute('position', '0, 0, 0');
-            aImg.setAttribute('src', imagePieces[puzzle[index]]);
+            aImg.setAttribute(`rotation`, `-90, 0, 0`);
+            aImg.setAttribute(`position`, `0, 0, 0`);
+            aImg.setAttribute(`src`, imagePieces[puzzle[index]]);
             marker.appendChild(aImg);
         });
 
