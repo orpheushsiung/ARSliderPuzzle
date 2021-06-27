@@ -34,14 +34,16 @@
 
 		constraints = {
 			video: {
-				width: 360,
-				height: 360,
+				width: 720,
+				height: 720,
 			}
 		};
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then(gotStream)
-;
+			.catch(error => {
+				console.log('getUserMedia error', error);
+			});
 	}
 
     // Display the stream from the camera, and then
@@ -49,7 +51,7 @@
     const gotStream = stream => {
         mediaStream = stream;
         video.srcObject = stream;
-        imageCapture = new imageCapture(stream.getVideoTracks()[0]);
+        imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
     };
 
     // Take the picture
