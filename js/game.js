@@ -16,13 +16,15 @@
 		positionMarkers = [],
 		check = new Array(6);
 
-    const init = () => {
-        video = document.querySelector(`video`);
-        navigator.mediaDevices.enumerateDevices()
-            .catch(error => console.log('enumerateDevice() error: ', error))
-            .then(getStream);
-        takePhotoButton.addEventListener(`click`, getPicture);
-    }
+
+	const init = () => {
+		video = document.querySelector(`video`);
+		navigator.mediaDevices.enumerateDevices()
+			.catch(error => console.log('enumerateDevices() error', error))
+			.then(getStream);
+
+		takePhotoButton.addEventListener(`click`, getPicture);
+	} 
 
 	//Get a video stream from the camera
 	const getStream = () => {
