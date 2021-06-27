@@ -46,16 +46,18 @@
 			});
 	}
 
-    // Display the stream from the camera, and then
-    // create an ImageCapture object, using video from the stream
-    const gotStream = stream => {
-        mediaStream = stream;
-        video.srcObject = stream;
-        imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
-    };
+	//Display the stream from the camera, and then 
+	//create an ImageCapture object, using video from the stream
+	const gotStream = stream => {
+		mediaStream = stream;
+		video.srcObject = stream;
+		imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
+
+	};
 
     // Take the picture
     const getPicture = () => {
+		//shuffle(puzzle);
         imageCapture.takePhoto()
             .then((img) => {
                 image.src = URL.createObjectURL(img);
