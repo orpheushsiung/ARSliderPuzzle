@@ -41,9 +41,7 @@
 
 		navigator.mediaDevices.getUserMedia(constraints)
 			.then(gotStream)
-			.catch(error => {
-				console.log('getUserMedia error', error);
-			});
+;
 	}
 
     // Display the stream from the camera, and then
