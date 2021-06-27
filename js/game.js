@@ -12,7 +12,7 @@
     let markers = document.querySelectorAll(`a-marker`);
 
     const init = () => {
-        video = document.querySelector('video');
+        video = document.querySelector(`video`);
         navigator.mediaDevices.enumerateDevices()
             .catch(error => console.log('enumerateDevice() error: ', error))
             .then(getStream);
@@ -86,6 +86,6 @@
     };
     const checkDistance = () => {};
 
-    window.addEventListener('load', () => setTimeout(() => init(), 1000));
+    window.addEventListener(`load`, () => setTimeout(() => init(), 1000));
 
 }
