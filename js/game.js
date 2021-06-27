@@ -1,6 +1,7 @@
 {
     // New Game-Level Variables
-    const takePhotoButton = document.querySelector('.takePhoto');
+    const image = new Image(),
+    	takePhotoButton = document.querySelector('.takePhoto');
     let constraints, imageCapture, mediaStream, video;
 
     // Puzzle Vars
